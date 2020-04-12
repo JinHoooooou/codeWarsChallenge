@@ -5,20 +5,15 @@ import java.util.Arrays;
 public class Kata {
 
   public static int findEvenIndex(int[] arr) {
-    int leftSum = 0;
-    int rightSum = 0;
-
     for (int targetIndex = 0; targetIndex < arr.length; targetIndex++) {
-      leftSum = addLeftSum(arr, targetIndex);
-      rightSum = addRightSum(arr, targetIndex);
-      if (leftSum == rightSum) {
+      if (leftSum(arr, targetIndex) == rightSum(arr, targetIndex)) {
         return targetIndex;
       }
     }
     return -1;
   }
 
-  private static int addRightSum(int[] arr, int targetIndex) {
+  private static int rightSum(int[] arr, int targetIndex) {
     int sum = 0;
     for (int i = arr.length - 1; i > targetIndex; i--) {
       sum += arr[i];
@@ -26,7 +21,7 @@ public class Kata {
     return sum;
   }
 
-  private static int addLeftSum(int[] arr, int targetIndex) {
+  private static int leftSum(int[] arr, int targetIndex) {
     int sum = 0;
     for (int i = 0; i < targetIndex; i++) {
       sum += arr[i];

@@ -1,12 +1,10 @@
 package sumOfFirstNthTermOfSeries_20200423;
 
-import java.util.stream.IntStream;
 
 public class NthSeries {
 
   public static String seriesSum(int n) {
 
-    IntStream.range(0,n).sum();
     double sum = 0;
     int series = 1;
     for (int i = 0; i < n; i++) {

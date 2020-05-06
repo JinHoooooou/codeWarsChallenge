@@ -18,7 +18,7 @@ class StringSplitTest {
   }
 
   @Test
-  @DisplayName("test should return {ab,cd,e_} when input \"abcdef\" ")
+  @DisplayName("test should return {ab,cd,e_} when input \"abcde\" ")
   public void test2() {
     // Given: Set string "abcde"
     String given = "abcde";

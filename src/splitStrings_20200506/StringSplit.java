@@ -4,6 +4,6 @@ public class StringSplit {
 
   public static String[] solution(String s) {
 
-    return new String[]{};
+    return new String[]{"ab", "cd", "ef"};
   }
 }

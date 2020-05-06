@@ -8,8 +8,7 @@ public class StringSplit {
     }
     String[] result = new String[s.length() / 2];
     for (int i = 0; i < result.length; i++) {
-      String target = s.substring(0, 2);
-      result[i] = target;
+      result[i] = s.substring(0, 2);
       s = s.substring(2);
     }
 

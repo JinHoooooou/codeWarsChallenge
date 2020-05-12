@@ -30,4 +30,16 @@ class KataTest {
     // Then: should return " Tah itse sits!"
     assertEquals(" Tah itse sits!", actual);
   }
+
+  @Test
+  @DisplayName("test should return input string when times less than 0")
+  public void test3() {
+    // Given: Set string and n times that times less than 0
+    String givenString = "This is a test!";
+    int givenTimes = -1;
+    // When: Call encrypt method
+    String actual = Kata.encrypt(givenString, givenTimes);
+    // Then: should return "This is a test"
+    assertEquals("This is a test!", actual);
+  }
 }

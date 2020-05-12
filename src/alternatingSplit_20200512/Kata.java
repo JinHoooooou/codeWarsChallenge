@@ -3,7 +3,9 @@ package alternatingSplit_20200512;
 public class Kata {
 
   public static String encrypt(final String text, final int n) {
-
+    if (text == null || n < 1) {
+      return text;
+    }
     String tempText = text;
     String result = "";
     for (int i = 0; i < n; i++) {

@@ -18,4 +18,16 @@ class KataTest {
     // Then: should return "hsi  etTi sats!"
     assertEquals("hsi  etTi sats!", actual);
   }
+
+  @Test
+  @DisplayName("test should return  Tah itse sits! when input string This is a test!, 3")
+  public void test2() {
+    // Given: Set string and n times
+    String givenString = "This is a test!";
+    int givenTimes = 3;
+    // When: Call encrypt method
+    String actual = Kata.encrypt(givenString, givenTimes);
+    // Then: should return " Tah itse sits!"
+    assertEquals(" Tah itse sits!", actual);
+  }
 }

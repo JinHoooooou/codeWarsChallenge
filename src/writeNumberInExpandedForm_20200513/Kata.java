@@ -3,16 +3,15 @@ package writeNumberInExpandedForm_20200513;
 public class Kata {
 
   public static String expandedForm(int num) {
-    int[] numbers = new int[(int) Math.log10(num) + 1];
-    for (int i = 0; i < numbers.length; i++) {
-      numbers[i] = num % 10;
-      num /= 10;
-    }
     String result = "";
-    for (int i = numbers.length - 1; i >= 0; i--) {
-      if (numbers[i] != 0) {
-        result += "" + (numbers[i] * (int) Math.pow(10, i)) + " + ";
+    int mulTimes = (int) Math.log10(num);
+    for (int i = mulTimes; i >= 0; i--) {
+      int pow = (int) Math.pow(10, i);
+      int number = (num / pow) * pow;
+      if (number != 0) {
+        result += "" + number + " + ";
       }
+      num = num % pow;
     }
     return result.substring(0, result.length() - 3);
   }

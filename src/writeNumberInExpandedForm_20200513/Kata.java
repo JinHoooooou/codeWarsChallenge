@@ -11,12 +11,9 @@ public class Kata {
     String result = "";
     for (int i = numbers.length - 1; i >= 0; i--) {
       if (numbers[i] != 0) {
-        result += "" + (numbers[i] * (int) Math.pow(10, i));
-        if (i != 0) {
-          result += " + ";
-        }
+        result += "" + (numbers[i] * (int) Math.pow(10, i)) + " + ";
       }
     }
-    return result;
+    return result.substring(0, result.length() - 3);
   }
 }

@@ -13,4 +13,11 @@ class KataTest {
     // Then: should return 10 + 2
     assertEquals("10 + 2", Kata.expandedForm(12));
   }
+
+  @Test
+  @DisplayName("test should return 70000 + 300 + 4 when input is 70304")
+  public void test2() {
+    // Then: should return 70000 + 300 + 4
+    assertEquals("70000 + 300 + 4", Kata.expandedForm(70304));
+  }
 }

@@ -17,4 +17,15 @@ class KataTest {
     // Then: Should return taxi
     assertEquals("taxi", actual);
   }
+
+  @Test
+  @DisplayName("test should return volcano when input is what time are we climbing up to the volcano")
+  public void test2() {
+    // Given: Set string
+    String given = "what time are we climbing up to the volcano";
+    // When: call high method
+    String actual = Kata.high(given);
+    // Then: Should return volcano
+    assertEquals("volcano", actual);
+  }
 }

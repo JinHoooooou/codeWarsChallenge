@@ -8,6 +8,7 @@ public class Max {
     if (arr.length == 0) {
       return 0;
     }
-    return IntStream.of(arr).sum();
+    int sum = IntStream.of(arr).sum();
+    return Math.max(sum, 0);
   }
 }

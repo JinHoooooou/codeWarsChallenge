@@ -26,4 +26,14 @@ class MaxTest {
     // Then: Should return 15
     assertEquals(15, Max.sequence(given));
   }
+
+  @Test
+  @DisplayName("test should return 0 when input element all negative")
+  public void test3() {
+    // Given: Set array element all negative
+    int[] given = {-11, -2, -43, -124, -65};
+
+    // Then: Should return 0
+    assertEquals(0, Max.sequence(given));
+  }
 }

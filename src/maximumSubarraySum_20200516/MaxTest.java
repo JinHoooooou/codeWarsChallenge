@@ -36,4 +36,14 @@ class MaxTest {
     // Then: Should return 0
     assertEquals(0, Max.sequence(given));
   }
+
+  @Test
+  @DisplayName("test should return 6 when input [-2, 1, -3, 4, -1, 2, 1, -5, 4]")
+  public void test4() {
+    // Given: Set array
+    int[] given = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+
+    // Then: Should return 6
+    assertEquals(6, Max.sequence(given));
+  }
 }

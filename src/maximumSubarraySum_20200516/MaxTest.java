@@ -13,25 +13,17 @@ class MaxTest {
     // Given: Set empty array
     int[] given = {};
 
-    // When: Call sequence method
-    int actual = Max.sequence(given);
-
     // Then: Should return 0
-    assertEquals(0, actual);
+    assertEquals(0, Max.sequence(given));
   }
 
   @Test
   @DisplayName("test should return sum all element when input element all positive")
   public void test2() {
     // Given: Set array element all positive
-    int[] given = {1,2,3,4,5};
-
-    // When: Call sequence method
-    int actual = Max.sequence(given);
+    int[] given = {1, 2, 3, 4, 5};
 
     // Then: Should return 15
-    assertEquals(15, actual);
+    assertEquals(15, Max.sequence(given));
   }
-
-
 }

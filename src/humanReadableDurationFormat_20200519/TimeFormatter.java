@@ -5,17 +5,23 @@ import java.util.List;
 
 public class TimeFormatter {
 
+  private static int SECOND_PER_MINUTE = 60;
+  private static int SECOND_PER_HOUR = 60 * SECOND_PER_MINUTE;
+  private static int SECOND_PER_DAY = 24 * SECOND_PER_HOUR;
+  private static int SECOND_PER_YEAR = 365 * SECOND_PER_DAY;
+
   public static String formatDuration(int seconds) {
     if (seconds == 0) {
       return "now";
     }
-    String result = "";
-    List<String> format = new ArrayList<>();
-    int year = seconds / (3600 * 24 * 365);
-    int day = seconds % (3600 * 24 * 365) / (3600 * 24);
-    int hour = seconds % (3600 * 24) / 3600;
-    int minute = seconds % 3600 / 60;
-    int second = seconds % 60;
+    int year = seconds / SECOND_PER_YEAR;
+    seconds = seconds % SECOND_PER_YEAR;
+    int day = seconds / SECOND_PER_DAY;
+    seconds = seconds % SECOND_PER_DAY;
+    int hour = seconds / SECOND_PER_HOUR;
+    seconds = seconds % SECOND_PER_HOUR;
+    int minute = seconds / SECOND_PER_MINUTE;
+    int second = seconds % SECOND_PER_MINUTE;
 
     if (year > 0) {
       format.add(year + (year > 1 ? " years" : " year"));

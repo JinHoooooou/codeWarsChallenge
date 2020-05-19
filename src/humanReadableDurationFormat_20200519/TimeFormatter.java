@@ -23,6 +23,7 @@ public class TimeFormatter {
     int minute = seconds / SECOND_PER_MINUTE;
     int second = seconds % SECOND_PER_MINUTE;
 
+    List<String> format = new ArrayList<>();
     if (year > 0) {
       format.add(year + (year > 1 ? " years" : " year"));
     }
@@ -38,6 +39,11 @@ public class TimeFormatter {
     if (second > 0) {
       format.add(second + (second > 1 ? " seconds" : " second"));
     }
+    return makeStringFormat(format);
+  }
+
+  private static String makeStringFormat(List<String> format) {
+    String result = "";
     if (format.size() > 1) {
       result = String.join(", ", format);
       String frontComponent = result.substring(0, result.lastIndexOf(","));

@@ -49,4 +49,11 @@ class TimeFormatterTest {
     assertEquals("182 days, 1 hour, 44 minutes and 40 seconds",
         TimeFormatter.formatDuration(15731080));
   }
+
+  @Test
+  @DisplayName("test should return now when input 0")
+  public void test7() {
+    // Then: Should return now
+    assertEquals("now", TimeFormatter.formatDuration(0));
+  }
 }

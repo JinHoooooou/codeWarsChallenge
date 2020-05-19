@@ -3,6 +3,9 @@ package humanReadableDurationFormat_20200519;
 public class TimeFormatter {
 
   public static String formatDuration(int seconds) {
+    if (seconds == 0) {
+      return "now";
+    }
     String result = "";
     int day = seconds / (3600 * 24);
     int hour = seconds % (3600 * 24) / 3600;

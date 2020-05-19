@@ -19,7 +19,7 @@ public class TimeFormatter {
     }
     if (hour > 0) {
       if (minute > 0 || second > 0) {
-        result = " and" + result;
+        result = ", " + result;
       }
       result = hour + (hour > 1 ? " hours" : " hour") + result;
     }

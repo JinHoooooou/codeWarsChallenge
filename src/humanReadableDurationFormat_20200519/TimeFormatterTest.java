@@ -41,4 +41,12 @@ class TimeFormatterTest {
     // Then: Should return 1 hour, 1 minute and 2 seconds
     assertEquals("1 hour, 1 minute and 2 seconds", TimeFormatter.formatDuration(3662));
   }
+
+  @Test
+  @DisplayName("test should return 182 days, 1 hour, 44 minutes and 40 seconds when input 15731080")
+  public void test6() {
+    // Then: Should return 182 days, 1 hour, 44 minutes and 40 seconds
+    assertEquals("182 days, 1 hour, 44 minutes and 40 seconds",
+        TimeFormatter.formatDuration(15731080));
+  }
 }

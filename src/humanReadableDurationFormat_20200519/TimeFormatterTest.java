@@ -27,4 +27,11 @@ class TimeFormatterTest {
     // Then: Should return 2 minutes
     assertEquals("2 minutes", TimeFormatter.formatDuration(120));
   }
+
+  @Test
+  @DisplayName("test should return 1 hour when input 3600")
+  public void test4() {
+    // Then: Should return 1 hour
+    assertEquals("1 hour", TimeFormatter.formatDuration(3600));
+  }
 }

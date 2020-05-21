@@ -16,7 +16,7 @@ public class WeightSort {
     Map<Integer, ArrayList<String>> map = new TreeMap<>();
     for (String weight : string.split(" ")) {
       ArrayList<String> valueList = new ArrayList<>();
-      int key = getWeightPoint(weight);
+      int key = weight.chars().map(Character::getNumericValue).sum();
       if (map.containsKey(key)) {
         valueList = map.get(key);
       }
@@ -24,13 +24,5 @@ public class WeightSort {
       map.put(key, valueList);
     }
     return map;
-  }
-
-  private static int getWeightPoint(String weight) {
-    int weightPoint = 0;
-    for (Character c : weight.toCharArray()) {
-      weightPoint += Character.getNumericValue(c);
-    }
-    return weightPoint;
   }
 }

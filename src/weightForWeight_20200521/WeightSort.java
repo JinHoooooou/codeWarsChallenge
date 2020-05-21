@@ -6,24 +6,32 @@ import java.util.TreeMap;
 public class WeightSort {
 
   public static String orderWeight(String string) {
-    String[] weightList = string.split(" ");
-    Map<Integer, String> map = new TreeMap<>();
+    Map<Integer, String> map = getWeightMap(string);
+    return getResultString(map);
+  }
 
-    for (String weight : weightList) {
-      int key = 0;
-      for (Character c : weight.toCharArray()) {
-        key += Character.getNumericValue(c);
-      }
-      if (!map.containsKey(key)) {
-        map.put(key, weight);
-      } else {
-        map.put(key, map.get(key) + " " + weight);
-      }
-    }
-    String result = "";
+  private static String getResultString(Map<Integer, String> map) {
+    String resultString = "";
     for (Integer key : map.keySet()) {
-      result += map.get(key) + " ";
+      resultString += map.get(key) + " ";
     }
-    return result.trim();
+    return resultString.trim();
+  }
+
+  private static Map<Integer, String> getWeightMap(String string) {
+    Map<Integer, String> map = new TreeMap<>();
+    for (String weight : string.split(" ")) {
+      int key = getWeightPoint(weight);
+      map.put(key, weight);
+    }
+    return map;
+  }
+
+  private static int getWeightPoint(String weight) {
+    int weightPoint = 0;
+    for (Character c : weight.toCharArray()) {
+      weightPoint += Character.getNumericValue(c);
+    }
+    return weightPoint;
   }
 }

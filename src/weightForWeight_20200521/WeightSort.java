@@ -1,27 +1,26 @@
 package weightForWeight_20200521;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.TreeMap;
 
 public class WeightSort {
 
   public static String orderWeight(String string) {
-    Map<Integer, ArrayList<String>> map = getWeightMap(string);
+    Map<Integer, String> map = getSortedWeightMap(string);
     return String.join(" ", map.values());
   }
 
-  private static Map<Integer, ArrayList<String>> getWeightMap(String string) {
-    Map<Integer, ArrayList<String>> map = new TreeMap<>();
-    for (String weight : string.split(" ")) {
-      ArrayList<String> valueList = new ArrayList<>();
+  private static Map<Integer, String> getSortedWeightMap(String string) {
+    Map<Integer, String> map = new TreeMap<>();
+    String[] weightList = string.split(" ");
+    Arrays.sort(weightList);
+    for (String weight : weightList) {
       int key = weight.chars().map(Character::getNumericValue).sum();
       if (map.containsKey(key)) {
-        valueList = map.get(key);
+        weight = map.get(key) + " " + weight;
       }
-      valueList.add(weight);
-      map.put(key, valueList);
+      map.put(key, weight);
     }
     return map;
   }

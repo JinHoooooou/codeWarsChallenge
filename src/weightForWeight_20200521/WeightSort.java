@@ -9,19 +9,7 @@ public class WeightSort {
 
   public static String orderWeight(String string) {
     Map<Integer, ArrayList<String>> map = getWeightMap(string);
-    return getResultString(map);
-  }
-
-  private static String getResultString(Map<Integer, ArrayList<String>> map) {
-    String resultString = "";
-    for (Integer key : map.keySet()) {
-      ArrayList<String> weightList = map.get(key);
-      Collections.sort(weightList);
-      for (String weight : weightList) {
-        resultString += weight + " ";
-      }
-    }
-    return resultString.trim();
+    return String.join(" ", map.values());
   }
 
   private static Map<Integer, ArrayList<String>> getWeightMap(String string) {

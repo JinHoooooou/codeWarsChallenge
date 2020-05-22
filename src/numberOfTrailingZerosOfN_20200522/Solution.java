@@ -4,10 +4,9 @@ public class Solution {
 
   public static int zeros(int n) {
     int fiveCount = 0;
-    for (int i = 1; i <= n; i++) {
-      if (i % 5 == 0) {
-        fiveCount++;
-      }
+    while (n >= 5) {
+      fiveCount += n / 5;
+      n /= 5;
     }
     return fiveCount;
   }

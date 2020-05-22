@@ -11,4 +11,10 @@ class SolutionTest {
     // Then: should return 0
     assertEquals(0, Solution.zeros(0));
   }
+
+  @Test
+  public void testShouldReturn1WhenInput6() {
+    // Then: should return 1
+    assertEquals(1, Solution.zeros(6));
+  }
 }

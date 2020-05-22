@@ -17,4 +17,10 @@ class SolutionTest {
     // Then: should return 1
     assertEquals(1, Solution.zeros(6));
   }
+
+  @Test
+  public void testShouldReturn6WhenInput25() {
+    // Then: should return 6
+    assertEquals(6, Solution.zeros(25));
+  }
 }

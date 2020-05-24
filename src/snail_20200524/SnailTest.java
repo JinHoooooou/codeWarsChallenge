@@ -34,4 +34,20 @@ class SnailTest {
     // Then: Should return {1,2,4,3}
     assertArrayEquals(new int[]{1, 2, 4, 3}, actual);
   }
+
+  @Test
+  @DisplayName("test when array length 3")
+  public void test3() {
+    // Given: set 2d array
+    int[][] given = {
+        {1, 2, 3},
+        {4, 5, 6},
+        {7, 8, 9}};
+
+    // When: Call snail method
+    int[] actual = Snail.snail(given);
+
+    // Then: Should return {1,2,3,6,9,8,7,4,5}
+    assertArrayEquals(new int[]{1, 2, 3, 6, 9, 8, 7, 4, 5}, actual);
+  }
 }

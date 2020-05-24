@@ -87,4 +87,17 @@ class SnailTest {
         new int[]{1, 2, 3, 4, 5, 10, 15, 20, 25, 24, 23, 22, 21, 16, 11, 6, 7, 8, 9, 14, 19, 18, 17,
             12, 13}, actual);
   }
+
+  @Test
+  @DisplayName("test when array length 0")
+  public void test6() {
+    // Given: set 2d array
+    int[][] given = {{}};
+
+    // When: Call snail method
+    int[] actual = Snail.snail(given);
+
+    // Then: Should return {}
+    assertArrayEquals(new int[]{}, actual);
+  }
 }

@@ -3,6 +3,9 @@ package snail_20200524;
 public class Snail {
 
   public static int[] snail(int[][] array) {
+    if (array[0].length == 0) {
+      return new int[0];
+    }
     int[] result = new int[array.length * array.length];
     int index = 0;
     for (int i = 0; i < array.length / 2; i++) {

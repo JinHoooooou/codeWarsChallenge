@@ -8,22 +8,37 @@ public class Snail {
     }
     int[] result = new int[array.length * array.length];
     if (array.length == 2) {
-      result[0] = array[0][0];
-      result[1] = array[0][1];
-      result[2] = array[1][1];
-      result[3] = array[1][0];
+      int index = 0;
+      for (int i = 0; i < array.length; i++) {
+        result[index] = array[0][i];
+        index++;
+      }
+      for (int i = 1; i < array.length; i++) {
+        result[index] = array[i][array.length - 1];
+        index++;
+      }
+      for (int i = 0; i >= 0; i--) {
+        result[index] = array[array.length - 1][i];
+        index++;
+      }
     } else if (array.length == 3) {
-      result[0] = array[0][0];
-      result[1] = array[0][1];
-      result[2] = array[0][2];
-
-      result[3] = array[1][2];
-      result[4] = array[2][2];
-
-      result[5] = array[2][1];
-      result[6] = array[2][0];
-      result[7] = array[1][0];
-      result[8] = array[1][1];
+      int index = 0;
+      for (int i = 0; i < array.length; i++) {
+        result[index] = array[0][i];
+        index++;
+      }
+      for (int i = 1; i < array.length; i++) {
+        result[index] = array[i][array.length - 1];
+        index++;
+      }
+      for (int i = 1; i >= 0; i--) {
+        result[index] = array[array.length - 1][i];
+        index++;
+      }
+      for (int i = 0; i < 2; i++) {
+        result[index] = array[1][i];
+        index++;
+      }
     }
 
     return result;

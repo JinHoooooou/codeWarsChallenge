@@ -7,41 +7,9 @@ public class Snail {
       return new int[]{1};
     }
     int[] result = new int[array.length * array.length];
-    if (array.length == 2) {
-      int index = 0;
+    int index = 0;
+    if (array.length % 2 == 0) {
       for (int i = 0; i < array.length; i++) {
-        result[index] = array[0][i];
-        index++;
-      }
-      for (int i = 1; i < array.length; i++) {
-        result[index] = array[i][array.length - 1];
-        index++;
-      }
-      for (int i = 0; i >= 0; i--) {
-        result[index] = array[array.length - 1][i];
-        index++;
-      }
-    } else if (array.length == 3) {
-      int index = 0;
-      for (int i = 0; i < array.length; i++) {
-        result[index] = array[0][i];
-        index++;
-      }
-      for (int i = 1; i < array.length; i++) {
-        result[index] = array[i][array.length - 1];
-        index++;
-      }
-      for (int i = 1; i >= 0; i--) {
-        result[index] = array[array.length - 1][i];
-        index++;
-      }
-      for (int i = 0; i < 2; i++) {
-        result[index] = array[1][i];
-        index++;
-      }
-    } else if (array.length == 4) {
-      int index = 0;
-      for (int i = 0; i < 2; i++) {
         for (int j = i; j < array.length - i; j++) {
           result[index] = array[i][j];
           index++;
@@ -58,6 +26,23 @@ public class Snail {
           result[index] = array[j][i];
           index++;
         }
+      }
+    } else if (array.length == 3) {
+      for (int i = 0; i < array.length; i++) {
+        result[index] = array[0][i];
+        index++;
+      }
+      for (int i = 1; i < array.length; i++) {
+        result[index] = array[i][array.length - 1];
+        index++;
+      }
+      for (int i = 1; i >= 0; i--) {
+        result[index] = array[array.length - 1][i];
+        index++;
+      }
+      for (int i = 0; i < 2; i++) {
+        result[index] = array[1][i];
+        index++;
       }
     }
 

@@ -10,11 +10,7 @@ class ScrambliesTest {
   @Test
   @DisplayName("test should true when input 'rkqodlw', 'world'")
   public void test1() {
-    // Given: Set input strings
-    String given1 = "rkqodlw";
-    String given2 = "world";
-
     // Then: Should true
-    assertTrue(Scramblies.scramble(given1, given2));
+    assertTrue(Scramblies.scramble("rkqodlw", "world"));
   }
 }

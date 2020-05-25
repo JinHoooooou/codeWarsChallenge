@@ -13,4 +13,11 @@ class ScrambliesTest {
     // Then: Should true
     assertTrue(Scramblies.scramble("rkqodlw", "world"));
   }
+
+  @Test
+  @DisplayName("test should false when input 'katas', 'steak'")
+  public void test2() {
+    // Then: Should false
+    assertFalse(Scramblies.scramble("katas", "steak"));
+  }
 }

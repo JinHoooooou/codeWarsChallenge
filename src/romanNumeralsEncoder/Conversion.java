@@ -1,51 +1,38 @@
 package romanNumeralsEncoder;
 
+import java.util.Comparator;
+import java.util.TreeMap;
+
 public class Conversion {
 
   public String solution(int n) {
     String result = "";
-    while (n != 0) {
-      if (n >= 1000) {
-        result += "M";
-        n -= 1000;
-      } else if (n >= 900) {
-        result += "CM";
-        n -= 900;
-      } else if (n >= 500) {
-        result += "D";
-        n -= 500;
-      } else if (n >= 400) {
-        result += "CD";
-        n -= 400;
-      } else if (n >= 100) {
-        result += "C";
-        n -= 100;
-      } else if (n >= 90) {
-        result += "XC";
-        n -= 90;
-      } else if (n >= 50) {
-        result += "L";
-        n -= 50;
-      } else if (n >= 40) {
-        result += "XL";
-        n -= 40;
-      } else if (n >= 10) {
-        result += "X";
-        n -= 10;
-      } else if (n >= 9) {
-        result += "IX";
-        n -= 9;
-      } else if (n >= 5) {
-        result += "V";
-        n -= 5;
-      } else if (n >= 4) {
-        result += "IV";
-        n -= 4;
-      } else {
-        result += "I";
-        n -= 1;
+    TreeMap<Integer, String> map = getRomanNumberMap();
+
+    for (Integer romanNumber : map.keySet()) {
+      while (n >= romanNumber) {
+        result += map.get(romanNumber);
+        n -= romanNumber;
       }
     }
     return result;
+  }
+
+  private TreeMap<Integer, String> getRomanNumberMap() {
+    TreeMap<Integer, String> map = new TreeMap<>(Comparator.reverseOrder());
+    map.put(1, "I");
+    map.put(4, "IV");
+    map.put(5, "V");
+    map.put(9, "IX");
+    map.put(10, "X");
+    map.put(40, "XL");
+    map.put(50, "L");
+    map.put(90, "XC");
+    map.put(100, "C");
+    map.put(400, "CD");
+    map.put(500, "D");
+    map.put(900, "CM");
+    map.put(1000, "M");
+    return map;
   }
 }

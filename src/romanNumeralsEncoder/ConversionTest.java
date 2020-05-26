@@ -24,4 +24,14 @@ class ConversionTest {
     // Then: should return IV
     assertEquals("IV", conversion.solution(4));
   }
+
+  @Test
+  @DisplayName("test should return V,VI,VII,VIII when input 5,6,7,8")
+  public void test4() {
+    // Then: should return V,VI,VII,VIII
+    assertEquals("V", conversion.solution(5));
+    assertEquals("VI", conversion.solution(6));
+    assertEquals("VII", conversion.solution(7));
+    assertEquals("VIII", conversion.solution(8));
+  }
 }

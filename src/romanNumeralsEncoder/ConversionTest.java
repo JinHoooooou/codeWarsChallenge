@@ -17,4 +17,11 @@ class ConversionTest {
     assertEquals("II", conversion.solution(2));
     assertEquals("III", conversion.solution(3));
   }
+
+  @Test
+  @DisplayName("test should return IV when input 4")
+  public void test2() {
+    // Then: should return IV
+    assertEquals("IV", conversion.solution(4));
+  }
 }

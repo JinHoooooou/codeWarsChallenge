@@ -34,4 +34,11 @@ class ConversionTest {
     assertEquals("VII", conversion.solution(7));
     assertEquals("VIII", conversion.solution(8));
   }
+
+  @Test
+  @DisplayName("test should return XV when input 1666")
+  public void test5() {
+    // Then: should return MDCLXVI
+    assertEquals("MDCLXVI", conversion.solution(1666));
+  }
 }

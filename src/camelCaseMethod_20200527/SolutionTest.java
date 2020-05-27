@@ -16,4 +16,14 @@ class SolutionTest {
     // Then: should return HelloCase
     assertEquals("HelloCase", Solution.camelCase(given));
   }
+
+  @Test
+  @DisplayName("test should return 'CamelCaseMethod' when input '   camel    case    method  '")
+  public void test2() {
+    // Given: Set String
+    String given = "   camel    case    method  ";
+
+    // Then: should return CamelCaseMethod
+    assertEquals("CamelCaseMethod", Solution.camelCase(given));
+  }
 }

@@ -7,10 +7,8 @@ import java.util.Queue;
 public class Solution {
 
   public static int solveSuperMarketQueue(int[] customers, int n) {
-    Queue<Integer> queue = new LinkedList<>();
-    for (int customer : customers) {
-      queue.add(customer);
-    }
+    Queue<Integer> queue = getCustomersQueue(customers);
+
     int[] tills = new int[n];
     int resultTime = 0;
     while (!queue.isEmpty()) {
@@ -24,5 +22,13 @@ public class Solution {
       resultTime += min;
     }
     return resultTime + Arrays.stream(tills).max().getAsInt();
+  }
+
+  private static Queue<Integer> getCustomersQueue(int[] customers) {
+    Queue<Integer> queue = new LinkedList<>();
+    for (int customer : customers) {
+      queue.add(customer);
+    }
+    return queue;
   }
 }

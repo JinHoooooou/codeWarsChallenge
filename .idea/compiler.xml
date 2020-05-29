@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <excludeFromCompile>
+      <file url="file://$PROJECT_DIR$/src/alternatingSplit_20200512/KataTest.java" />
+      <file url="file://$PROJECT_DIR$/src/averagesOfNumbers_20200521/KataTest.java" />
+      <file url="file://$PROJECT_DIR$/src/convertNumberToReversedArrayOfDigits_20200501/KataTest.java" />
+      <file url="file://$PROJECT_DIR$/src/highestScoringWord_20200514/KataTest.java" />
+      <file url="file://$PROJECT_DIR$/src/reduceButGrow_20200523/KataTest.java" />
+      <file url="file://$PROJECT_DIR$/src/sortTheOdd_20200504/KataTest.java" />
+      <file url="file://$PROJECT_DIR$/src/stringEndsWith_20200505/KataTest.java" />
+      <file url="file://$PROJECT_DIR$/src/sumWithoutHighestAndLowestNumber_20200516/KataTest.java" />
+      <file url="file://$PROJECT_DIR$/src/writeNumberInExpandedForm_20200513/KataTest.java" />
+    </excludeFromCompile>
+  </component>
+</project>

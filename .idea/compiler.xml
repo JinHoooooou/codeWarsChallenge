@@ -11,6 +11,10 @@
       <file url="file://$PROJECT_DIR$/src/stringEndsWith_20200505/KataTest.java" />
       <file url="file://$PROJECT_DIR$/src/sumWithoutHighestAndLowestNumber_20200516/KataTest.java" />
       <file url="file://$PROJECT_DIR$/src/writeNumberInExpandedForm_20200513/KataTest.java" />
+      <file url="file://$PROJECT_DIR$/src/camelCaseMethod_20200527/SolutionTest.java" />
+      <file url="file://$PROJECT_DIR$/src/dontGiveMeFive_20200529/KataTest.java" />
+      <file url="file://$PROJECT_DIR$/src/findTheStrayNumber_20200524/SolutionTest.java" />
+      <file url="file://$PROJECT_DIR$/src/numberOfTrailingZerosOfN_20200522/SolutionTest.java" />
     </excludeFromCompile>
   </component>
 </project>

@@ -13,4 +13,12 @@ class TortoiseTest {
     // Then: Should return null
     assertNull(Tortoise.race(100,80,40));
   }
+
+
+  @Test
+  @DisplayName("test should [2,0,0] when v1=80, v2=100 g=40")
+  public void test2() {
+    // Then: Should return [2,0,0]
+    assertArrayEquals(new int[]{2, 0, 0}, Tortoise.race(80, 100, 40));
+  }
 }

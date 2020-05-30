@@ -6,6 +6,10 @@ public class Tortoise {
     if (v1 >= v2) {
       return null;
     }
-    return new int[]{};
+    int time = 3600 * g / (v2 - v1);
+    int hour = time / 3600;
+    int min = time % 3600 / 60;
+    int second = time % 3600 % 60;
+    return new int[]{hour, min, second};
   }
 }

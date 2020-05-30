@@ -21,4 +21,11 @@ class TortoiseTest {
     // Then: Should return [2,0,0]
     assertArrayEquals(new int[]{2, 0, 0}, Tortoise.race(80, 100, 40));
   }
+
+  @Test
+  @DisplayName("test should [0,32,18] when v1=720, v2=850 g=70")
+  public void test3() {
+    // Then: Should return [0,32,18]
+    assertArrayEquals(new int[]{0, 32, 18}, Tortoise.race(720, 850, 70));
+  }
 }

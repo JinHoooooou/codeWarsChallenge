@@ -27,4 +27,14 @@ class SolutionTest {
     assertEquals("1,2,4-6", Solution.rangeExtraction(given));
   }
 
+  @Test
+  @DisplayName("test should return '-6,-3-1,3-5,7-11,14,15,17-20' "
+      + "when input [-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20]")
+  public void test3() {
+    // Given: Set int array
+    int[] given = {-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20};
+
+    // Then: Should return '-6,-3-1,3-5,7-11,14,15,17-20'
+    assertEquals("-6,-3-1,3-5,7-11,14,15,17-20", Solution.rangeExtraction(given));
+  }
 }

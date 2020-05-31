@@ -16,4 +16,15 @@ class SolutionTest {
     // Then: Should return '0-5'
     assertEquals("0-5", Solution.rangeExtraction(given));
   }
+
+  @Test
+  @DisplayName("test should return '1,2,4-6' when input [1,2,4,5,6]")
+  public void test2() {
+    // Given: Set int array
+    int[] given = {1, 2, 4, 5, 6};
+
+    // Then: Should return '1,2,4-6'
+    assertEquals("1,2,4-6", Solution.rangeExtraction(given));
+  }
+
 }

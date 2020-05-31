@@ -1,22 +1,28 @@
 package rangeExtraction_20200531;
 
-import java.util.Stack;
-
 public class Solution {
 
   public static String rangeExtraction(int[] arr) {
-    Stack<Integer> consecutiveStack = new Stack<>();
     String result = "";
-    consecutiveStack.push(arr[0]);
-    for (int i = 1; i < arr.length; i++) {
-      if (consecutiveStack.peek() + 1 == arr[i]) {
-        consecutiveStack.push(arr[i]);
+    for (int i = 0; i < arr.length; i++) {
+      int j = i + 1;
+      while (j < arr.length) {
+        if (arr[j - 1] + 1 == arr[j]) {
+          j++;
+        } else {
+          break;
+        }
+      }
+      if (j - i > 2) {
+        result += arr[i] + "-" + arr[j - 1] + ",";
+        i = j - 1;
+      } else if (j - i == 2) {
+        result += arr[i] + "," + arr[j - 1] + ",";
+        i = j - 1;
+      } else {
+        result += arr[i] + ",";
       }
     }
-    if (consecutiveStack.size() > 2) {
-      result += consecutiveStack.firstElement() + "-" + consecutiveStack.peek();
-      consecutiveStack.clear();
-    }
-    return result;
+    return result.substring(0, result.length() - 1);
   }
 }

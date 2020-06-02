@@ -19,4 +19,16 @@ class SolutionTest {
     // Then: Should return 2
     assertEquals(2, solution.solution(skill, skillTree));
   }
+
+  @Test
+  @DisplayName("test should return 6 when"
+      + " skill='AB', skillTree=[AB, ABCD, CA, DACE, ACBD, CDAB, B, BA, CDBA, CBDA]")
+  public void test2() {
+    // Given: Set input
+    String skill = "AB";
+    String[] skillTree = {"AB", "ABCD", "CA", "DACE", "ACBD", "CDAB", "B", "BA", "CDBA", "CBDA"};
+
+    // Then: Should return 6
+    assertEquals(6, solution.solution(skill, skillTree));
+  }
 }

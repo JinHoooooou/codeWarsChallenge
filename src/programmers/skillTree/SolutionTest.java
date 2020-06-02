@@ -17,7 +17,7 @@ class SolutionTest {
     String[] skillTree = {"ABC", "BAC", "CD"};
 
     // Then: Should return 2
-    assertEquals(2, solution.solution(skill, skillTree));
+    assertEquals(3, solution.solution(skill, skillTree));
   }
 
   @Test

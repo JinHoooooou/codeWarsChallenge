@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 class SolutionTest {
 
-  Solution solution = new Solution();
+  AnotherSolution solution = new AnotherSolution();
 
   @Test
   @DisplayName("test should return 2 when skill='A', skillTree=[ABC,BAC,CD]")

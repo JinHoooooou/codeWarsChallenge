@@ -1,4 +1,4 @@
-package codeWars.kyu7;
+package codeWars.kyu7.countTheDigit_20200611;
 
 import static org.junit.jupiter.api.Assertions.*;
 

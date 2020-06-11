@@ -1,4 +1,4 @@
-package codeWars.kyu8findFirstNonConsecutiveNumber_20200611;
+package codeWars.kyu8.findFirstNonConsecutiveNumber_20200611;
 
 import static org.junit.jupiter.api.Assertions.*;
 

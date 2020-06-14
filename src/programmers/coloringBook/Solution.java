@@ -13,7 +13,6 @@ public class Solution {
         if (!visit[i][j] && picture[i][j] != 0) {
           areaCount++;
           maxArea = Math.max(maxArea, search(picture, i, j, picture[i][j]));
-          System.out.println("sex");
         }
       }
     }

@@ -8,5 +8,6 @@ public class Solution {
     int[] compare = Arrays.copyOf(arr, arr.length);
     Arrays.sort(compare);
     return Arrays.equals(arr, compare);
+
   }
 }

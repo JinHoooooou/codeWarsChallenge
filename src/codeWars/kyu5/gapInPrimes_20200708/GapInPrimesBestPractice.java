@@ -3,22 +3,23 @@ package codeWars.kyu5.gapInPrimes_20200708;
 public class GapInPrimesBestPractice {
 
   public static long[] gap(int g, long m, long n) {
-    long last = Long.MIN_VALUE;
+    long firstPrime = Long.MIN_VALUE;
     for (long i = m; i < n; i++) {
       if (isPrime(i)) {
-        if (i - last == g) {
-          return new long[]{last, i};
+        long secondPrime = i;
+        if (secondPrime - firstPrime == g) {
+          return new long[]{firstPrime, i};
         }
-        last = i;
+        firstPrime = secondPrime;
       }
     }
 
     return null;
   }
 
-  private static boolean isPrime(long i) {
-    for (long j = 2; j < i / 2; j++) {
-      if (i % j == 0) {
+  private static boolean isPrime(long number) {
+    for (long i = 2; i < Math.sqrt(number); i++) {
+      if (number % i == 0) {
         return false;
       }
     }

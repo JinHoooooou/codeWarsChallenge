@@ -9,7 +9,7 @@ class KataTest {
 
   @Test
   public void testWhenStringIsEmpty() {
-    assertEquals("z", Kata.addLetters(""));
+    assertEquals("z", Kata.addLetters());
   }
 
   @Test

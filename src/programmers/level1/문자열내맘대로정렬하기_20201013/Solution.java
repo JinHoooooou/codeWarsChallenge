@@ -1,4 +1,4 @@
-package programmers.level2.문자열내맘대로정렬하기_20201013;
+package programmers.level1.문자열내맘대로정렬하기_20201013;
 
 import java.util.Arrays;
 import java.util.Comparator;

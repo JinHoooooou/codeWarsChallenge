@@ -1,4 +1,4 @@
-package doNotSolve.programmers.멀쩡한_사각형;
+package doNotSolve.programmers.level2.멀쩡한_사각형;
 
 public class Solution {
 

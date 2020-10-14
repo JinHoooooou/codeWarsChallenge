@@ -1,4 +1,4 @@
-package doNotSolve.programmers.체육복;
+package doNotSolve.programmers.level2.체육복;
 
 public class Solution {
 

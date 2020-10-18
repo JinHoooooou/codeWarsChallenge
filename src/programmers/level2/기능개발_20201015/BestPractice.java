@@ -6,12 +6,13 @@ public class BestPractice {
 
   public int[] solution(int[] progresses, int[] speeds) {
     int[] dayOfEnd = new int[100];
-    int day = -1;
+    int lastDate = Integer.MIN_VALUE;
     for (int i = 0; i < progresses.length; i++) {
-      while (progresses[i] + (day * speeds[i]) < 100) {
-        day++;
+      int remainDate = (int) Math.ceil((100.0 - progresses[i]) / speeds[i]);
+      if (remainDate > lastDate) {
+        lastDate = remainDate;
       }
-      dayOfEnd[day]++;
+      dayOfEnd[lastDate]++;
     }
     return Arrays.stream(dayOfEnd).filter(x -> x != 0).toArray();
   }

@@ -3,21 +3,21 @@ package doNotSolve.programmers.level2.큰수만들기_20201012;
 public class Solution {
 
   public String solution(String number, int k) {
-    int resultStringLength = number.length() - k;
-    StringBuilder current = new StringBuilder();
-    int targetIndex = -1;
-    while (current.length() != resultStringLength) {
-      int maxDigit = 0;
-      for (int i = targetIndex + 1; i <= k; i++) {
-        int target = Character.getNumericValue(number.charAt(i));
-        if (target > maxDigit) {
-          maxDigit = target;
-          targetIndex = i;
+    String result = "";
+    int availableLastIndex = k;
+    int startIndex = 0;
+    while (result.length() < number.length() - k) {
+      char maxDigit = '0';
+      for (int i = startIndex; i <= availableLastIndex; i++) {
+        if (maxDigit < number.charAt(i)) {
+          maxDigit = number.charAt(i);
+          startIndex = i + 1;
         }
       }
-      current.append(maxDigit);
-      k++;
+      result += maxDigit;
+      availableLastIndex++;
     }
-    return current.toString();
+
+    return result;
   }
 }

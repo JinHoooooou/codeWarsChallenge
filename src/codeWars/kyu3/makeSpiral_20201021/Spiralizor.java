@@ -15,12 +15,7 @@ public class Spiralizor {
 
   public static int[][] spiralize(int size) {
 
-    int[][] spiral = new int[size][size];
-    for (int i = 0; i < size; i++) {
-      for (int j = 0; j < size; j++) {
-        spiral[i][j] = UNKNOWN;
-      }
-    }
+    int[][] spiral = initSpiral(size);
     makeBorder(spiral);
 
     int currentRow = 0;
@@ -87,6 +82,12 @@ public class Spiralizor {
       }
     }
     spiral[currentRow][currentCol] = ROUTE;
+
+    exchangeZeroWithOne(size, spiral);
+    return spiral;
+  }
+
+  private static void exchangeZeroWithOne(int size, int[][] spiral) {
     for (int i = 0; i < size; i++) {
       for (int j = 0; j < size; j++) {
         if (spiral[i][j] == WALL) {
@@ -96,7 +97,15 @@ public class Spiralizor {
         }
       }
     }
+  }
 
+  private static int[][] initSpiral(int size) {
+    int[][] spiral = new int[size][size];
+    for (int i = 0; i < size; i++) {
+      for (int j = 0; j < size; j++) {
+        spiral[i][j] = UNKNOWN;
+      }
+    }
     return spiral;
   }
 

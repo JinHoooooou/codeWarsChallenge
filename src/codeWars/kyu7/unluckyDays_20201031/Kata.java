@@ -1,19 +1,18 @@
 package codeWars.kyu7.unluckyDays_20201031;
 
-import java.util.Calendar;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
 
 public class Kata {
 
   public static int unluckyDays(int year) {
-    Calendar cal = Calendar.getInstance();
-    int unluckyCount = 0;
-    for (int month = 0; month < 12; month++) {
-      cal.set(year, month, 13);
-      int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
-      if (dayOfWeek == 6) {
-        unluckyCount++;
+    int count = 0;
+    for (int month = 1; month <= 12; month++) {
+      LocalDate date = LocalDate.of(year, month, 13);
+      if (date.getDayOfWeek() == DayOfWeek.FRIDAY) {
+        count++;
       }
     }
-    return unluckyCount;
+    return count;
   }
 }

@@ -1,4 +1,4 @@
-package programmers.크레인_인형뽑기_게임;
+package programmers.level1.크레인인형뽑기게임_20201117;
 
 import java.util.ArrayList;
 import java.util.List;

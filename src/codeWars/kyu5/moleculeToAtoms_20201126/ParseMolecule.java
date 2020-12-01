@@ -1,142 +1,106 @@
 package codeWars.kyu5.moleculeToAtoms_20201126;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Stack;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 class ParseMolecule {
 
+  static final String ATOM_NUMBER_REGEX = "[A-Z][a-z]?\\d*";
+  static final String OPEN_BRACKET_REGEX = "[({\\[]";
+  static final String CLOSE_BRACKET_REGEX = "[)}\\]]\\d*";
+
   public static Map<String, Integer> getAtoms(String formula) {
-    if (!isCorrectAtoms(formula)) {
+
+    List<String> tokens = getTokens(formula);
+
+    if (!String.join("", tokens).equals(formula)) {
       throw new IllegalArgumentException();
-    } else if (!isCorrectBracket(formula)) {
+    }
+
+    Stack<String> bracketStack = new Stack<>();
+    Map<String, Integer> atomMap = splitMolecule(tokens, bracketStack);
+
+    if (!bracketStack.isEmpty()) {
       throw new IllegalArgumentException();
     }
-    formula = formula.replaceAll("[{\\[]", "(");
-    formula = formula.replaceAll("[}\\]]", ")");
-    String simpleFormula = simplify(formula);
-    return getResultMap(simpleFormula);
+
+    return atomMap;
   }
 
-  private static boolean isCorrectBracket(String formula) {
-    Stack<Character> stack = new Stack<Character>();
-    for (int i = 0; i < formula.length(); i++) {
-      char c = formula.charAt(i);
-      if (c == '[' || c == '(' || c == '{') {
-        stack.push(c);
-      } else if (c == ']') {
-        if (stack.isEmpty() || stack.pop() != '[') {
-          return false;
-        }
-      } else if (c == ')') {
-        if (stack.isEmpty() || stack.pop() != '(') {
-          return false;
-        }
-      } else if (c == '}') {
-        if (stack.isEmpty() || stack.pop() != '{') {
-          return false;
-        }
-      }
+  private static List<String> getTokens(String formula) {
+    Matcher matcher = Pattern
+        .compile(
+            String.format("%s|%s|%s", ATOM_NUMBER_REGEX, OPEN_BRACKET_REGEX, CLOSE_BRACKET_REGEX))
+        .matcher(formula);
 
+    List<String> tokens = new ArrayList<>();
+    while (matcher.find()) {
+      tokens.add(matcher.group());
     }
-    return stack.isEmpty();
+    return tokens;
   }
 
-  private static boolean isCorrectAtoms(String formula) {
-    formula = formula.replaceAll("[({\\[)}\\]0-9]", "");
-    String[] atoms = formula.split("");
-    for (int i = 0; i < atoms.length; i++) {
-      if (atoms[i].matches("[a-z]")) {
-        if (i - 1 > 0 && atoms[i - 1].matches("[a-z]")) {
-          return false;
-        } else if (i + 1 < atoms.length && atoms[i + 1].matches("[a-z]")) {
-          return false;
-        }
-      }
-    }
-    return true;
-  }
+  private static Map<String, Integer> splitMolecule(List<String> tokens, Stack<String> stack) {
 
-  private static Map<String, Integer> getResultMap(String simpleFormula) {
-    HashMap<String, Integer> map = new HashMap<>();
-    String[] split = simpleFormula.split("");
-    for (int i = 0; i < split.length; i++) {
-      if (split[i].matches("[A-Z]")) {
-        String atom = split[i];
-        String number = "";
-        if (i + 1 < split.length && split[i + 1].matches("[a-z]")) {
-          atom += split[++i];
+    Map<String, Integer> map = new HashMap<>();
+    while (!tokens.isEmpty()) {
+      String token = tokens.remove(0);
+
+      if (token.matches(ATOM_NUMBER_REGEX)) {
+        addAtom(map, token);
+      } else if (token.matches(OPEN_BRACKET_REGEX)) {
+        stack.push(token);
+        concatAtom(map, splitMolecule(tokens, stack));
+      } else if (token.matches(CLOSE_BRACKET_REGEX)) {
+        if (!isValidBracket(stack, token)) {
+          throw new IllegalArgumentException();
         }
-        while (i + 1 < split.length) {
-          if (split[i + 1].matches("[0-9]")) {
-            number += split[i + 1];
-            i++;
-          } else {
-            break;
-          }
+        if (token.length() > 1) {
+          multiplyAtom(map, Integer.parseInt(token.substring(1)));
         }
-        int count = number.isEmpty() ? 1 : Integer.parseInt(number);
-        map.put(atom, map.getOrDefault(atom, 0) + count);
+        break;
       }
     }
     return map;
   }
 
-  private static String simplify(String formula) {
-    String lastFormula = "";
-
-    for (int i = 0; i < formula.length(); i++) {
-      if (formula.charAt(i) == '(') {
-        formula = formula.substring(0, i) + simplify(formula.substring(i + 1));
-      } else if (formula.charAt(i) == ')') {
-        String multiply = "";
-        int index = i + 1;
-        while (index < formula.length()) {
-          if (String.valueOf(formula.charAt(index)).matches("[0-9]")) {
-            multiply += formula.charAt(index++);
-          } else {
-            break;
-          }
-        }
-        int defaultValue = multiply.isEmpty() ? 1 : Integer.parseInt(multiply);
-        lastFormula = formula.substring(index);
-        String target = formula.substring(0, i);
-        formula = calculate(target, defaultValue) + lastFormula;
-        break;
-      }
-    }
-    return formula;
+  private static void multiplyAtom(Map<String, Integer> map, final int value) {
+    map.forEach((atom, count) -> map.put(atom, count * value));
   }
 
-  private static String calculate(String target, int defaultValue) {
-    HashMap<String, Integer> map = new HashMap<>();
-    String[] split = target.split("");
-    for (int i = 0; i < split.length; i++) {
-      if (split[i].matches("[A-Z]")) {
-        String atom = split[i];
-        String number = "";
-        if (i + 1 < split.length && split[i + 1].matches("[a-z]")) {
-          atom += split[++i];
-        }
-        while (i + 1 < split.length) {
-          if (split[i + 1].matches("[0-9]")) {
-            number += split[i + 1];
-            i++;
-          } else {
-            break;
-          }
-        }
-        int count = number.isEmpty() ? defaultValue : defaultValue * Integer.parseInt(number);
-        map.put(atom, map.getOrDefault(atom, 0) + count);
-      }
+  private static void concatAtom(Map<String, Integer> map, Map<String, Integer> internalMap) {
+    internalMap.forEach((atom, count) -> map.put(atom, map.getOrDefault(atom, 0) + count));
+  }
+
+  private static void addAtom(Map<String, Integer> map, String token) {
+    Pattern atomAndCountPattern = Pattern.compile("([A-Z][a-z]?)(\\d*)");
+    Matcher matcher = atomAndCountPattern.matcher(token);
+    if (matcher.find()) {
+      String atom = matcher.group(1);
+      int count = matcher.group(2).isEmpty() ? 1 : Integer.parseInt(matcher.group(2));
+      map.put(atom, map.getOrDefault(atom, 0) + count);
+    }
+  }
+
+  private static boolean isValidBracket(Stack<String> stack, String token) {
+    if (stack.isEmpty()) {
+      return false;
     }
 
-    String result = "";
-    for (Entry<String, Integer> entry : map.entrySet()) {
-      result += entry.getKey() + entry.getValue();
+    char closeBracket = token.charAt(0);
+    if (stack.peek().equals("[") && closeBracket != ']') {
+      return false;
+    } else if (stack.peek().equals("{") && closeBracket != '}') {
+      return false;
+    } else if (stack.peek().equals("(") && closeBracket != ')') {
+      return false;
     }
-
-    return result;
+    stack.pop();
+    return true;
   }
 }

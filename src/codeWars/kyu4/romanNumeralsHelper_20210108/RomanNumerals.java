@@ -1,15 +1,16 @@
 package codeWars.kyu4.romanNumeralsHelper_20210108;
 
 import java.util.Arrays;
-import java.util.HashMap;
+import java.util.Comparator;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class RomanNumerals {
 
   static Map<Integer, String> romanMap;
 
   static {
-    romanMap = new HashMap<>();
+    romanMap = new TreeMap<>(Comparator.reverseOrder());
     romanMap.put(1, "I");
     romanMap.put(4, "IV");
     romanMap.put(5, "V");
@@ -26,35 +27,11 @@ public class RomanNumerals {
   }
 
   public static String toRoman(int n) {
-    String digits = String.valueOf(n);
     String result = "";
-    for (int i = 0; i < digits.length(); i++) {
-      int digit = Integer.parseInt(digits.charAt(i) + "");
-      int pow = (int) Math.pow(10, digits.length() - 1 - i);
-      int target = digit * pow;
-      while (target > 0) {
-        int minus = 0;
-        if (digit == 4) {
-          digit -= 4;
-          minus = 4 * pow;
-        } else if (digit == 5) {
-          digit -= 5;
-          minus = 5 * pow;
-        } else if (digit == 9) {
-          digit -= 9;
-          minus = 9 * pow;
-        } else if (digit == 1) {
-          digit -= 1;
-          minus = 1 * pow;
-        } else if (digit > 5 && digit < 9) {
-          digit -= 5;
-          minus = 5 * pow;
-        } else {
-          digit -= 1;
-          minus = 1 * pow;
-        }
-        result += romanMap.get(minus);
-        target -= minus;
+    for (Map.Entry<Integer, String> entry : romanMap.entrySet()) {
+      while (n >= entry.getKey()) {
+        result += entry.getValue();
+        n -= entry.getKey();
       }
     }
 
@@ -76,10 +53,9 @@ public class RomanNumerals {
     romanNumeral = romanNumeral.replaceAll("X", "10+");
     romanNumeral = romanNumeral.replaceAll("I", "1+");
 
-    String[] nums = romanNumeral.split("\\+");
-    int result = 0;
-    result = Arrays.stream(nums).filter(x -> !x.isEmpty()).mapToInt(Integer::parseInt).sum();
-
-    return result;
+    return Arrays.stream(romanNumeral.split("\\+"))
+        .filter(x -> !x.isEmpty())
+        .mapToInt(Integer::parseInt)
+        .sum();
   }
 }

@@ -16,27 +16,27 @@ public class Solution {
 
     while (startIndex < msg.length()) {
       int endIndex = getEndIndex(msg, dictionary, startIndex);
-      String target = msg.substring(startIndex, endIndex - 1);
+      String target = msg.substring(startIndex, endIndex);
 
       indexList.add(dictionary.get(target));
       if (endIndex < msg.length()) {
-        dictionary.put(msg.substring(startIndex, endIndex), letterIndex++);
+        dictionary.put(msg.substring(startIndex, endIndex + 1), letterIndex++);
       }
 
-      startIndex = endIndex - 1;
+      startIndex = endIndex;
     }
 
     return indexList.stream().mapToInt(x -> x).toArray();
   }
 
   private int getEndIndex(String msg, Map<String, Integer> dictionary, int startIndex) {
-    int endIndex;
-    for (endIndex = startIndex + 1; endIndex <= msg.length(); endIndex++) {
-      if (!dictionary.containsKey(msg.substring(startIndex, endIndex))) {
+    int index;
+    for (index = startIndex + 1; index <= msg.length(); index++) {
+      if (!dictionary.containsKey(msg.substring(startIndex, index))) {
         break;
       }
     }
-    return endIndex;
+    return index - 1;
   }
 
   private Map<String, Integer> buildBasicDictionary() {

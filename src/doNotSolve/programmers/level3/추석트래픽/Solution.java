@@ -5,29 +5,42 @@ import java.util.List;
 
 public class Solution {
 
-  public int solution(String[] lines) {
-    List<Integer> starts = new ArrayList<>();
-    List<Integer> startTimes = new ArrayList<>();
-    List<Integer> endTimes = new ArrayList<>();
-    timeToMilliseconds(lines, starts, startTimes, endTimes);
+  private List<Integer> starts;
+  private List<Integer> startTimes;
+  private List<Integer> endTimes;
 
+  public Solution() {
+    starts = new ArrayList<>();
+    startTimes = new ArrayList<>();
+    endTimes = new ArrayList<>();
+  }
+
+  public int solution(String[] lines) {
+    timeToMilliseconds(lines, starts, startTimes, endTimes);
     int max = 0;
+
     for (int startSection : starts) {
-      int count = 0;
       int endSection = startSection + 1000;
-      for (int i = 0; i < lines.length; i++) {
-        if (startTimes.get(i) >= startSection && startTimes.get(i) < endSection) {
-          count++;
-        } else if (endTimes.get(i) >= startSection && endTimes.get(i) < endSection) {
-          count++;
-        } else if (startTimes.get(i) <= startSection && endTimes.get(i) >= endSection) {
-          count++;
-        }
-      }
-      max = Math.max(max, count);
+      max = Math.max(max, getProcessCount(startSection, endSection));
     }
 
     return max;
+  }
+
+  private int getProcessCount(int startSection, int endSection) {
+    int count = 0;
+    for (int i = 0; i < startTimes.size(); i++) {
+      if (isPartOfSection(startSection, endSection, startTimes.get(i), endTimes.get(i))) {
+        count++;
+      }
+    }
+    return count;
+  }
+
+  private boolean isPartOfSection(int startSection, int endSection, int startTime, int endTime) {
+    return (startTime >= startSection && startTime < endSection)
+        || (endTime >= startSection && endTime < endSection)
+        || (startTime <= startSection && endTime >= endSection);
   }
 
   private void timeToMilliseconds(String[] lines, List<Integer> starts, List<Integer> startTimes,

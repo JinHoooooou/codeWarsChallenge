@@ -2,37 +2,20 @@ package doNotSolve.programmers.level3.N으로표현;
 
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Map;
 
 public class Solution {
 
+  Map<Integer, HashSet<Integer>> calculationResultMap;
 
-  public static int solution(int N, int number) {
-
-    Map<Integer, HashSet<Integer>> calculationResultMap = init(N);
+  public int solution(int N, int number) {
+    calculationResultMap = new HashMap<>();
 
     for (int i = 1; i < 9; i++) {
-      HashSet<Integer> calculationResults = new LinkedHashSet<>();
-      int attach = Integer.parseInt(Integer.toBinaryString((int) Math.pow(2, i) - 1)) * N;
-      if (attach == number) {
+      HashSet<Integer> calculationResults = getCalculationValues(i, N);
+      if (calculationResults.contains(number)) {
         return i;
-      }
-      calculationResults.add(attach);
-
-      for (int j = 1; j <= i / 2; j++) {
-        for (int a : calculationResultMap.get(j)) {
-          for (int b : calculationResultMap.get(i - j)) {
-            for (Operator op : Operator.values()) {
-              int result = op.calcuate(a, b);
-              if (result == number) {
-                return i;
-              }
-              calculationResults.add(op.calcuate(a, b));
-            }
-          }
-        }
       }
       calculationResultMap.put(i, calculationResults);
     }
@@ -40,13 +23,28 @@ public class Solution {
     return -1;
   }
 
-  private static Map<Integer, HashSet<Integer>> init(int n) {
-    Map<Integer, HashSet<Integer>> map = new HashMap<>();
-    HashSet<Integer> set = new HashSet<>();
-    set.add(n);
-    map.put(1, set);
-    return map;
+  private HashSet<Integer> getCalculationValues(int count, int N) {
+    HashSet<Integer> set = new LinkedHashSet<>();
+    int attach = getAttachValue(count, N);
+    set.add(attach);
+
+    for (int j = 1; j <= count / 2; j++) {
+      for (int a : calculationResultMap.get(j)) {
+        for (int b : calculationResultMap.get(count - j)) {
+          for (Operator op : Operator.values()) {
+            set.add(op.calcuate(a, b));
+          }
+        }
+      }
+    }
+
+    return set;
   }
+
+  private int getAttachValue(int count, int N) {
+    return Integer.parseInt(Integer.toBinaryString((int) Math.pow(2, count) - 1)) * N;
+  }
+
 }
 
 enum Operator {

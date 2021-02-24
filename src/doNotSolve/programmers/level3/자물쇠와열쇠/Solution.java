@@ -3,35 +3,27 @@ package doNotSolve.programmers.level3.자물쇠와열쇠;
 public class Solution {
 
   public boolean solution(int[][] key, int[][] lock) {
+    int padSize = lock.length - 1;
+
     for (int i = 0; i < 4; i++) {
-      rotate(key);
-      int[][] paddedKey = pad(key, lock.length - 1);
-      for (int padRow = 0; padRow < paddedKey.length - lock.length - 1; padRow++) {
-        for (int padCol = 0; padCol < paddedKey.length - lock.length - 1; padCol++) {
-          if (isValid(paddedKey, lock, padRow, padCol)) {
+      key = rotate(key);
+      int[][] paddedKey = pad(key, padSize);
+      for (int j = 0; j < paddedKey.length - padSize; j++) {
+        for (int k = 0; k < paddedKey.length - padSize; k++) {
+          if (isValid(lock, paddedKey, j, k)) {
             return true;
           }
         }
       }
     }
+
     return false;
   }
 
-  private int[][] pad(int[][] key, int padSize) {
-    int[][] paddedKey = new int[key.length + padSize * 2][key.length + padSize * 2];
-
-    for (int i = padSize; i < key.length + padSize; i++) {
-      for (int j = padSize; j < key.length + padSize; j++) {
-        paddedKey[i][j] = key[i - padSize][j - padSize];
-      }
-    }
-    return paddedKey;
-  }
-
-  private boolean isValid(int[][] paddedKey, int[][] lock, int padRow, int padCol) {
-    for (int k = 0; k < lock.length; k++) {
-      for (int l = 0; l < lock.length; l++) {
-        if (lock[k][l] + paddedKey[padRow + k][padCol + l] != 1) {
+  private boolean isValid(int[][] lock, int[][] paddedKey, int j, int k) {
+    for (int l = 0; l < lock.length; l++) {
+      for (int m = 0; m < lock.length; m++) {
+        if (lock[l][m] + paddedKey[j + l][k + m] != 1) {
           return false;
         }
       }
@@ -39,18 +31,34 @@ public class Solution {
     return true;
   }
 
+  private int[][] pad(int[][] key, int padSize) {
+    int[][] result = new int[key.length + padSize * 2][key.length + padSize * 2];
 
-  private void rotate(int[][] key) {
-    int[][] rotateKey = new int[key.length][key.length];
     for (int i = 0; i < key.length; i++) {
       for (int j = 0; j < key.length; j++) {
-        rotateKey[i][j] = key[key.length - 1 - j][i];
+        result[padSize + i][padSize + j] = key[i][j];
       }
     }
+    return result;
+  }
+
+  private int[][] rotate(int[][] key) {
+    int[][] result = new int[key.length][key.length];
     for (int i = 0; i < key.length; i++) {
       for (int j = 0; j < key.length; j++) {
-        key[i][j] = rotateKey[i][j];
+        result[i][j] = key[key.length - 1 - j][i];
       }
     }
+    return result;
+  }
+
+  private int[][] copy(int[][] key) {
+    int[][] result = new int[key.length][key.length];
+    for (int i = 0; i < key.length; i++) {
+      for (int j = 0; j < key.length; j++) {
+        result[i][j] = key[i][j];
+      }
+    }
+    return result;
   }
 }

@@ -42,31 +42,33 @@ public class Solution {
   }
 
   private static void heapSort(int[] array) {
-    int length = array.length - 1;
-    for (int i = array.length / 2 - 1; i >= 0; i--) {
-      heapify(array, i, length);
+    int lastIndex = array.length - 1;
+    for (int i = (lastIndex - 1) / 2; i >= 0; i--) {
+      heapify(array, i, lastIndex);
     }
-    for (int j = array.length - 1; j > 0; j--) {
-      swap(array, 0, j);
-      heapify(array, 0, --length);
+    for (int i = lastIndex; i > 0; i--) {
+      swap(array, 0, i);
+      heapify(array, 0, i - 1);
     }
   }
 
-  private static void heapify(int[] array, int targetIndex, int length) {
-    int rightChildIndex = (targetIndex + 1) * 2;
-    int leftChildIndex = rightChildIndex - 1;
-    if (leftChildIndex > length) {
-      return;
+  private static void heapify(int[] array, int targetIndex, int lastIndex) {
+    int rightChildIndex = targetIndex * 2 + 2;
+    int leftChildIndex = targetIndex * 2 + 1;
+
+    int greaterIndex = targetIndex;
+    if (leftChildIndex <= lastIndex && array[leftChildIndex] > array[greaterIndex]) {
+      greaterIndex = leftChildIndex;
     }
-    int greaterIndex = leftChildIndex;
-    if (array[rightChildIndex] > array[leftChildIndex] && rightChildIndex <= length) {
+    if (rightChildIndex <= lastIndex && array[rightChildIndex] > array[leftChildIndex]) {
       greaterIndex = rightChildIndex;
     }
+
     if (array[targetIndex] > array[greaterIndex]) {
       return;
     }
     swap(array, targetIndex, greaterIndex);
-    heapify(array, greaterIndex, length);
+    heapify(array, greaterIndex, lastIndex);
   }
 
   private static void quickSort(int[] array, int first, int last) {

@@ -8,6 +8,7 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
 public class Solution {
@@ -30,23 +31,50 @@ public class Solution {
       }
       parents = new int[vertexCount];
       List<int[]> edges = new ArrayList<>();
-
+      List<Edge>[] adjList = new List[vertexCount];
+      for (int i = 0; i < vertexCount; i++) {
+        adjList[i] = new ArrayList<>();
+      }
       int cost = 0;
       for (int i = 0; i < edgeCount; i++) {
         tokenizer = new StringTokenizer(READER.readLine());
         int from = Integer.parseInt(tokenizer.nextToken());
         int to = Integer.parseInt(tokenizer.nextToken());
         int weight = Integer.parseInt(tokenizer.nextToken());
+
         edges.add(new int[]{from, to, weight});
+        adjList[from].add(new Edge(to, weight));
+        adjList[to].add(new Edge(from, weight));
         cost += weight;
       }
 
       edges.sort(Comparator.comparingInt(o -> o[2]));
-      kruskal(edges, cost);
+      //kruskal(edges, cost);
+      prim(adjList, cost);
     }
     WRITER.flush();
     WRITER.close();
     READER.close();
+  }
+
+  private static void prim(List<Edge>[] adjList, int cost) throws IOException {
+    int vertexCount = adjList.length;
+    PriorityQueue<Edge> queue = new PriorityQueue<>(Comparator.comparingInt(o -> o.weight));
+    boolean[] visit = new boolean[vertexCount];
+    queue.add(new Edge(0, 0));
+
+    while (!queue.isEmpty()) {
+      Edge current = queue.poll();
+      if (visit[current.to]) {
+        continue;
+      }
+      visit[current.to] = true;
+      cost -= current.weight;
+      for (Edge adjEdge : adjList[current.to]) {
+        queue.add(adjEdge);
+      }
+    }
+    WRITER.write(cost + "\n");
   }
 
   private static void kruskal(List<int[]> edges, int cost) throws IOException {
@@ -84,5 +112,17 @@ public class Solution {
       return x;
     }
     return parents[x] = find(parents[x]);
+  }
+}
+
+
+class Edge {
+
+  int to;
+  int weight;
+
+  public Edge(int to, int weight) {
+    this.to = to;
+    this.weight = weight;
   }
 }

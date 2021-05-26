@@ -19,20 +19,26 @@ public class Solution {
       new OutputStreamWriter(System.out));
   private static StringTokenizer tokenizer;
   private static int vertexCount;
+  private static int edgeCount;
 
 
   public static void main(String[] args) throws IOException {
     tokenizer = new StringTokenizer(READER.readLine());
     vertexCount = Integer.parseInt(tokenizer.nextToken());
-    int edgeCount = Integer.parseInt(tokenizer.nextToken());
+    edgeCount = Integer.parseInt(tokenizer.nextToken());
     int destination = Integer.parseInt(tokenizer.nextToken());
 
-    List<Edge>[] adjList = buildAdjList(edgeCount);
+    List<Edge>[] adjList = new List[vertexCount + 1];
+    List<Edge>[] reverseAdjList = new List[vertexCount + 1];
+
+    buildAdjList(adjList, reverseAdjList);
 
     int max = Integer.MIN_VALUE;
+    int[] go_distance = dijkstra(reverseAdjList, destination);
+    int[] back_distance = dijkstra(adjList, destination);
+
     for (int i = 1; i <= vertexCount; i++) {
-      int distance = dijkstra(adjList, i, destination) + dijkstra(adjList, destination, i);
-      max = Math.max(max, distance);
+      max = Math.max(max, go_distance[i] + back_distance[i]);
     }
 
     WRITER.write(max + "");
@@ -42,10 +48,11 @@ public class Solution {
 
   }
 
-  private static List<Edge>[] buildAdjList(int edgeCount) throws IOException {
-    List<Edge>[] adjList = new List[vertexCount + 1];
+  private static void buildAdjList(List<Edge>[] adjList, List<Edge>[] reverseAdjList)
+      throws IOException {
     for (int i = 1; i <= vertexCount; i++) {
       adjList[i] = new ArrayList<>();
+      reverseAdjList[i] = new ArrayList<>();
     }
     for (int i = 0; i < edgeCount; i++) {
       tokenizer = new StringTokenizer(READER.readLine());
@@ -54,15 +61,14 @@ public class Solution {
       int weight = Integer.parseInt(tokenizer.nextToken());
 
       adjList[from].add(new Edge(to, weight));
+      reverseAdjList[to].add(new Edge(from, weight));
     }
-    return adjList;
   }
 
-  private static int dijkstra(List<Edge>[] adjList, int source, int destination) {
+  private static int[] dijkstra(List<Edge>[] adjList, int source) {
     PriorityQueue<Edge> queue = new PriorityQueue<>(Comparator.comparingInt(o -> o.weight));
     int[] distance = new int[vertexCount + 1];
     Arrays.fill(distance, Integer.MAX_VALUE);
-    boolean[] visit = new boolean[vertexCount + 1];
     queue.add(new Edge(source, 0));
     distance[source] = 0;
 
@@ -77,7 +83,7 @@ public class Solution {
       }
     }
 
-    return distance[destination];
+    return distance;
   }
 }
 

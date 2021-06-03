@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
-public class Solution {
+public class SolutionNotUseQueue {
 
   private static final BufferedReader READER = new BufferedReader(new InputStreamReader(System.in));
   private static final BufferedWriter WRITER = new BufferedWriter(

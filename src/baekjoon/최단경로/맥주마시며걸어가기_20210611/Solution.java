@@ -24,11 +24,12 @@ public class Solution {
     while (test-- > 0) {
       tokenizer = new StringTokenizer(READER.readLine());
       int vertexCount = Integer.parseInt(tokenizer.nextToken()) + 2;
-      List<Integer>[] adjList = buildGraph(vertexCount);
+      int[][] points = buildPoints(vertexCount);
+      List<Integer>[] adjList = buildGraph(points, vertexCount);
+      boolean[][] isPath = buildPaths(vertexCount, points);
 
+      floyd(vertexCount, isPath);
       bfs(vertexCount, adjList);
-
-      WRITER.write(bfs(vertexCount, adjList) ? "happy\n" : "sad\n");
     }
 
     WRITER.flush();
@@ -36,28 +37,35 @@ public class Solution {
     READER.close();
   }
 
-  private static boolean bfs(int vertexCount, List<Integer>[] adjList) {
-    Queue<Integer> queue = new LinkedList<>();
-    boolean[] visit = new boolean[vertexCount + 1];
-    queue.add(1);
-
-    while (!queue.isEmpty()) {
-      int current = queue.poll();
-
-      if (visit[current]) {
-        continue;
-      }
-      visit[current] = true;
-      for (int adjVertex : adjList[current]) {
-        if (!visit[adjVertex]) {
-          queue.add(adjVertex);
+  private static void floyd(int vertexCount, boolean[][] isPath) throws IOException {
+    for (int k = 1; k <= vertexCount; k++) {
+      for (int i = 1; i <= vertexCount; i++) {
+        for (int j = 1; j <= vertexCount; j++) {
+          isPath[i][j] = isPath[i][k] && isPath[k][j];
         }
       }
     }
-    return visit[vertexCount];
+    WRITER.write(isPath[1][vertexCount] ? "happy\n" : "sad\n");
   }
 
-  private static List<Integer>[] buildGraph(int vertexCount) throws IOException {
+  private static boolean[][] buildPaths(int vertexCount, int[][] points) {
+    boolean[][] isPath = new boolean[vertexCount + 1][vertexCount + 1];
+
+    for (int i = 1; i <= vertexCount; i++) {
+      int[] from = points[i];
+      for (int j = 1; j <= vertexCount; j++) {
+        int[] to = points[j];
+        int weight = Math.abs(from[0] - to[0]) + Math.abs(from[1] - to[1]);
+        if (weight <= 1000) {
+          isPath[i][j] = true;
+          isPath[j][i] = true;
+        }
+      }
+    }
+    return isPath;
+  }
+
+  private static int[][] buildPoints(int vertexCount) throws IOException {
     int[][] points = new int[vertexCount + 1][];
     for (int i = 1; i <= vertexCount; i++) {
       tokenizer = new StringTokenizer(READER.readLine());
@@ -65,7 +73,10 @@ public class Solution {
       int y = Integer.parseInt(tokenizer.nextToken());
       points[i] = new int[]{x, y};
     }
+    return points;
+  }
 
+  private static List<Integer>[] buildGraph(int[][] points, int vertexCount) {
     List<Integer>[] adjList = new List[vertexCount + 1];
     for (int i = 1; i <= vertexCount; i++) {
       adjList[i] = new ArrayList<>();
@@ -83,5 +94,27 @@ public class Solution {
       }
     }
     return adjList;
+  }
+
+  private static void bfs(int vertexCount, List<Integer>[] adjList) throws IOException {
+    Queue<Integer> queue = new LinkedList<>();
+    boolean[] visit = new boolean[vertexCount + 1];
+    queue.add(1);
+
+    while (!queue.isEmpty()) {
+      int current = queue.poll();
+
+      if (visit[current]) {
+        continue;
+      }
+      visit[current] = true;
+      for (int adjVertex : adjList[current]) {
+        if (!visit[adjVertex]) {
+          queue.add(adjVertex);
+        }
+      }
+    }
+
+    WRITER.write(visit[vertexCount] ? "happy\n" : "sad\n");
   }
 }

@@ -18,10 +18,21 @@ public class SumFractionsTest {
         {1, 4},
     };
 
-    // When: call sumFractions method
-    String result = SumFractions.sumFractions(input);
-
     // Then: return "13/12"
-    assertThat(result, is("13/12"));
+    assertThat(SumFractions.sumFractions(input), is("[13, 12]"));
   }
+
+  @Test
+  @DisplayName("test should return 2 when input [[1,3][5,3]]")
+  public void test2() {
+    int[][] input = {
+        {1, 3},
+        {5, 3},
+    };
+
+    // Then: return "2"
+    assertThat(SumFractions.sumFractions(input), is("2"));
+  }
+
+
 }

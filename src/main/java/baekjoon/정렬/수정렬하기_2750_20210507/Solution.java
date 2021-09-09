@@ -64,11 +64,10 @@ public class Solution {
       greaterIndex = rightChildIndex;
     }
 
-    if (array[targetIndex] > array[greaterIndex]) {
-      return;
+    if (targetIndex != greaterIndex) {
+      swap(array, targetIndex, greaterIndex);
+      heapify(array, greaterIndex, lastIndex);
     }
-    swap(array, targetIndex, greaterIndex);
-    heapify(array, greaterIndex, lastIndex);
   }
 
   private static void quickSort(int[] array, int first, int last) {

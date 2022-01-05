@@ -1,7 +1,5 @@
 package programmers._2016년;
 
-import java.util.Calendar;
-
 public class Solution {
 
   public static String solution(int a, int b) {

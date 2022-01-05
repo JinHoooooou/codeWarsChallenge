@@ -1,7 +1,5 @@
 package codeWars.kyu3.makeSpiral_20201021;
 
-import java.util.Arrays;
-
 public class Spiralizor {
 
   static final int WALL = 1;

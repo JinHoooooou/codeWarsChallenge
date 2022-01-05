@@ -1,6 +1,6 @@
 package codeWars.kyu7.ruleOfDivisibilityBy7_20200821;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

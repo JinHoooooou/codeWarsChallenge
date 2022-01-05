@@ -1,8 +1,6 @@
 package programmers.level2.쿼드압축후개수세기;
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 public class Solution {
 

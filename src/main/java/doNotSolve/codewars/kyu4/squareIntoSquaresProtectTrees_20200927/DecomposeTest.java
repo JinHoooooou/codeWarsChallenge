@@ -1,6 +1,6 @@
 package doNotSolve.codewars.kyu4.squareIntoSquaresProtectTrees_20200927;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 

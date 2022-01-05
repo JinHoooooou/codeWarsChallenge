@@ -1,6 +1,6 @@
 package codeWars.convertNumberToReversedArrayOfDigits_20200501;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import org.junit.jupiter.api.Test;
 

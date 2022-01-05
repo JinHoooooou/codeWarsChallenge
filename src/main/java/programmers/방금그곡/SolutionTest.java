@@ -1,6 +1,6 @@
 package programmers.방금그곡;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.text.ParseException;
 import org.junit.jupiter.api.Test;

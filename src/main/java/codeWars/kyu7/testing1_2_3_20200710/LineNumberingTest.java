@@ -1,6 +1,6 @@
 package codeWars.kyu7.testing1_2_3_20200710;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Arrays;
 import org.junit.jupiter.api.DisplayName;

@@ -1,6 +1,6 @@
 package codeWars.countTheSmileyFaces_20200501;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;

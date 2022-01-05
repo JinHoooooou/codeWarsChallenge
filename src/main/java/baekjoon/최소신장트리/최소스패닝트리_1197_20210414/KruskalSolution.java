@@ -2,12 +2,9 @@ package baekjoon.최소신장트리.최소스패닝트리_1197_20210414;
 
 import baekjoon.Input;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.List;
 import java.util.StringTokenizer;
-import javax.print.DocFlavor.READER;
 
 public class KruskalSolution {
 

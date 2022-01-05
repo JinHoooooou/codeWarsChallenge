@@ -1,6 +1,6 @@
 package codeWars.isMyFriendCheating_20200420;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;

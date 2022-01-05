@@ -1,6 +1,6 @@
 package codeWars.keepHydrated_20200422;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 

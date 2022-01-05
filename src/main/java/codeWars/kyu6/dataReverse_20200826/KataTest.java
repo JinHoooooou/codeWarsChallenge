@@ -1,6 +1,6 @@
 package codeWars.kyu6.dataReverse_20200826;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import org.junit.jupiter.api.Test;
 

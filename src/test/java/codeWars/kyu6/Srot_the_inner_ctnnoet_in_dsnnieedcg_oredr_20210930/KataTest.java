@@ -2,7 +2,6 @@ package codeWars.kyu6.Srot_the_inner_ctnnoet_in_dsnnieedcg_oredr_20210930;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

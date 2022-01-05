@@ -1,6 +1,6 @@
 package codeWars.kyu8.removeExclamationMarks_20200610;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

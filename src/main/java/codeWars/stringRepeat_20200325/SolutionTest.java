@@ -1,6 +1,6 @@
 package codeWars.stringRepeat_20200325;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 

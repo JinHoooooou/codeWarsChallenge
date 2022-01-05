@@ -1,7 +1,6 @@
 package codeWars.kyu4.nextBiggerNumberWithTheSameDigits_20200618;
 
 import java.util.Arrays;
-import java.util.TreeSet;
 
 public class KataBestPractice {
 

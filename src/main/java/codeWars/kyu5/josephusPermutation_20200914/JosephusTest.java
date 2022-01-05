@@ -1,6 +1,6 @@
 package codeWars.kyu5.josephusPermutation_20200914;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import java.util.Arrays;
 import java.util.List;

@@ -1,6 +1,5 @@
 package programmers.두개_뽑아_더하기;
 
-import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
 

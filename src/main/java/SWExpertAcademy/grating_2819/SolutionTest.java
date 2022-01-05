@@ -1,6 +1,6 @@
 package SWExpertAcademy.grating_2819;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 

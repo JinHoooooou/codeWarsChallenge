@@ -1,7 +1,6 @@
 package codeWars.kyu6.perimeterOfSquaresInRectangle_20200608;
 
 import java.math.BigInteger;
-import java.util.Arrays;
 
 public class SumFct {
 

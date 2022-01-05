@@ -1,8 +1,6 @@
 package codeWars.kyu6.howMuch_20210104;
 
-import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;

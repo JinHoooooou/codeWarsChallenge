@@ -1,7 +1,5 @@
 package codeWars.kyu6.SumOfParts_20209007;
 
-import java.util.Arrays;
-
 public class SumParts {
 
   public static int[] sumParts(int[] ls) {

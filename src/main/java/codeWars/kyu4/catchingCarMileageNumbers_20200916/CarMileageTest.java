@@ -1,6 +1,6 @@
 package codeWars.kyu4.catchingCarMileageNumbers_20200916;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 

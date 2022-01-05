@@ -1,6 +1,6 @@
 package codeWars.kyu5.int32ToIPv4_20200918;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 

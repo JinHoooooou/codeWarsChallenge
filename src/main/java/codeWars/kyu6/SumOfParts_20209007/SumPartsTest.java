@@ -1,6 +1,6 @@
 package codeWars.kyu6.SumOfParts_20209007;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import org.junit.jupiter.api.Test;
 

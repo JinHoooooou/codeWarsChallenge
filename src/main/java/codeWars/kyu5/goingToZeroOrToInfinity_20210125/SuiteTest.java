@@ -1,6 +1,5 @@
 package codeWars.kyu5.goingToZeroOrToInfinity_20210125;
 
-import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
 import org.junit.Test;

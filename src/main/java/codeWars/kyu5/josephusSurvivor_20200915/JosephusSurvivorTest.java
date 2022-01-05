@@ -1,6 +1,6 @@
 package codeWars.kyu5.josephusSurvivor_20200915;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 

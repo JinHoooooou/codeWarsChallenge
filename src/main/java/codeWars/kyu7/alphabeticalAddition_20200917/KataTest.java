@@ -1,6 +1,6 @@
 package codeWars.kyu7.alphabeticalAddition_20200917;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 

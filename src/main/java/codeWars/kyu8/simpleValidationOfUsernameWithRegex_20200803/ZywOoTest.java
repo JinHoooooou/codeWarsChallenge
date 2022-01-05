@@ -1,6 +1,7 @@
 package codeWars.kyu8.simpleValidationOfUsernameWithRegex_20200803;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 

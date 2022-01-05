@@ -1,6 +1,6 @@
 package codeWars.TribonacciSequence_20200329;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import org.junit.jupiter.api.Test;
 

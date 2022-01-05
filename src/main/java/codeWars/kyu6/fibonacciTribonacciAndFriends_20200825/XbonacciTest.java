@@ -1,6 +1,6 @@
 package codeWars.kyu6.fibonacciTribonacciAndFriends_20200825;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import org.junit.jupiter.api.Test;
 

@@ -1,6 +1,6 @@
 package codeWars.kyu4.stripComments_20200604;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 

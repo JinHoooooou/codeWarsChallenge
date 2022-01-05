@@ -1,6 +1,6 @@
 package codeWars.kyu4.theObservedPIN_20200625;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import java.util.Arrays;
 import java.util.Collections;

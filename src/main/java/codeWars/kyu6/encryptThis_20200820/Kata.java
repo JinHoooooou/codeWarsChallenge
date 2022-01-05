@@ -1,8 +1,5 @@
 package codeWars.kyu6.encryptThis_20200820;
 
-import java.util.Arrays;
-import java.util.stream.Collectors;
-
 public class Kata {
 
   public static String encryptThis(String text) {

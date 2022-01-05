@@ -1,6 +1,6 @@
 package codeWars.kyu6.consonantValue_20200923;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 

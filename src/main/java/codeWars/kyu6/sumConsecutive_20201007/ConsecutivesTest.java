@@ -1,7 +1,7 @@
 package codeWars.kyu6.sumConsecutive_20201007;
 
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
 
 import java.util.Arrays;
 import java.util.List;

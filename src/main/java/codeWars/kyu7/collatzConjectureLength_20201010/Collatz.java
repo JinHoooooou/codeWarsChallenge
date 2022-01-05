@@ -1,8 +1,5 @@
 package codeWars.kyu7.collatzConjectureLength_20201010;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Collatz {
 
   public static long conjecture(long x) {

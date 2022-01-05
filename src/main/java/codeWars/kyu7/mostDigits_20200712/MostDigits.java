@@ -1,7 +1,5 @@
 package codeWars.kyu7.mostDigits_20200712;
 
-import java.util.Arrays;
-
 public class MostDigits {
 
   public static int findLongest(int[] numbers) {

@@ -1,7 +1,5 @@
 package codeWars.kyu8.swapValues_20200712;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.Test;
 
 class SwapperTest {

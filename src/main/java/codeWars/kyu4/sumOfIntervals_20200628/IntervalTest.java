@@ -1,6 +1,6 @@
 package codeWars.kyu4.sumOfIntervals_20200628;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

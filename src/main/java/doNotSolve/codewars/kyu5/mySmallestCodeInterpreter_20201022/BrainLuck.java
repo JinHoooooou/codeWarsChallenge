@@ -1,6 +1,6 @@
 package doNotSolve.codewars.kyu5.mySmallestCodeInterpreter_20201022;
 
-import java.util.*;
+import java.util.ArrayList;
 
 public class BrainLuck {
 

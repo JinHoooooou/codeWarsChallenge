@@ -1,9 +1,6 @@
 package programmers.level2.피보나치수_20201029;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class Solution {
 

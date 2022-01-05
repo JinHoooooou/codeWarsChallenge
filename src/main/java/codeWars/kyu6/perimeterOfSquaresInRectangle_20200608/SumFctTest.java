@@ -1,6 +1,6 @@
 package codeWars.kyu6.perimeterOfSquaresInRectangle_20200608;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.math.BigInteger;
 import org.junit.jupiter.api.DisplayName;

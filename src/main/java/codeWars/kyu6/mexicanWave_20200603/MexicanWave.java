@@ -1,7 +1,6 @@
 package codeWars.kyu6.mexicanWave_20200603;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.fail;
 
 import java.util.ArrayList;
 import java.util.List;

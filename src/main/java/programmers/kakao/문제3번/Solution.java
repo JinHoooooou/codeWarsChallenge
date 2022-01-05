@@ -1,6 +1,5 @@
 package programmers.kakao.문제3번;
 
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;

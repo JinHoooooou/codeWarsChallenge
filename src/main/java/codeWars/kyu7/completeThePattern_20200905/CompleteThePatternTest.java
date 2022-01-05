@@ -1,6 +1,6 @@
 package codeWars.kyu7.completeThePattern_20200905;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 

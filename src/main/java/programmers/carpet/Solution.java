@@ -1,8 +1,5 @@
 package programmers.carpet;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Solution {
 
   public int[] solution(int brown, int yellow) {

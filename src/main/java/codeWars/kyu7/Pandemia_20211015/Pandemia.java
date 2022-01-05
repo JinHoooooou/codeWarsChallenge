@@ -1,7 +1,5 @@
 package codeWars.kyu7.Pandemia_20211015;
 
-import java.util.Arrays;
-
 public class Pandemia {
 
   public static double infected(String input) {

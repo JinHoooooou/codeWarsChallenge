@@ -1,6 +1,5 @@
 package codeWars.kyu7.simpleRemoveDuplicates_20201204;
 
-import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
 

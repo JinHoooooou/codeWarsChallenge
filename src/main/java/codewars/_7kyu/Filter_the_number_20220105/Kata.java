@@ -1,4 +1,4 @@
-package codewars._7kyu.Filter_the_number;
+package codewars._7kyu.Filter_the_number_20220105;
 
 public class Kata {
 

@@ -1,4 +1,4 @@
-package codewars._5kyu_Convert_A_Hex_String_To_RGB_20220302;
+package codewars._5kyu.Convert_A_Hex_String_To_RGB_20220302;
 
 import java.util.ArrayList;
 import java.util.List;

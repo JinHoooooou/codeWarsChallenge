@@ -1,8 +1,7 @@
-package codewars._5kyu_Convert_A_Hex_String_To_RGB_20220302;
+package codewars._5kyu.Convert_A_Hex_String_To_RGB_20220302;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
